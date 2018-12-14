@@ -1,0 +1,26 @@
+﻿@model IEnumerable<F2018Letterkenny.Models.Character>
+
+@{
+    ViewBag.Title = "Letterkenny Characters";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Letterkenny Characters</h2>
+
+@foreach (var item in Model) {
+    <div class="col-md-6 list-group text-center">
+        <h4>
+            @Html.DisplayFor(modelItem => item.Name)
+        </h4>
+        <img src="@item.Photo" alt="@item.Name" height="225" />
+        <div>
+            <a href="/Characters/Edit/@item.CharacterId" class="btn btn-primary">
+                Edit
+            </a>
+            <a href="/Characters/Details/@item.CharacterId" class="btn btn-primary">
+                Details
+            </a>
+        </div>
+    </div>
+}
+
